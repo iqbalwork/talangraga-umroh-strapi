@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "periodes",
+  "info": {
+    "singularName": "periode",
+    "pluralName": "periodes",
+    "displayName": "Periode"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "periodeName": {
+      "type": "string",
+      "required": true
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date",
+      "required": true
+    }
+  }
+}
