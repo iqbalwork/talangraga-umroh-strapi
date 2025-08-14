@@ -92,20 +92,24 @@
     },
     "parentUser": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "memberUser"
     },
-    "users": {
+    "memberUser": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "plugin::users-permissions.user",
-      "mappedBy": "members"
+      "mappedBy": "parentUser"
     },
-    "members": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "users"
+    "userType": {
+      "type": "enumeration",
+      "required": true,
+      "default": "Member",
+      "enum": [
+        "Admin",
+        "Member"
+      ]
     }
   }
 }

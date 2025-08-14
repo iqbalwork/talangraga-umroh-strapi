@@ -959,12 +959,12 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
-    members: Schema.Attribute.Relation<
-      'manyToOne',
+    memberUser: Schema.Attribute.Relation<
+      'oneToMany',
       'plugin::users-permissions.user'
     >;
     parentUser: Schema.Attribute.Relation<
-      'oneToOne',
+      'manyToOne',
       'plugin::users-permissions.user'
     >;
     password: Schema.Attribute.Password &
@@ -993,10 +993,9 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 3;
       }>;
-    users: Schema.Attribute.Relation<
-      'oneToMany',
-      'plugin::users-permissions.user'
-    >;
+    userType: Schema.Attribute.Enumeration<['Admin', 'Member']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Member'>;
   };
 }
 
