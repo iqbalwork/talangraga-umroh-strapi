@@ -446,7 +446,7 @@ export interface ApiTransactionTransaction extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    amount: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    amount: Schema.Attribute.BigInteger & Schema.Attribute.Required;
     buktiTransferImage: Schema.Attribute.Media<'images'> &
       Schema.Attribute.Required;
     confirmedByUser: Schema.Attribute.Relation<
@@ -973,6 +973,9 @@ export interface PluginUsersPermissionsUser
         minLength: 6;
       }>;
     phone: Schema.Attribute.String;
+    profile_picture: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     resetPasswordToken: Schema.Attribute.String & Schema.Attribute.Private;

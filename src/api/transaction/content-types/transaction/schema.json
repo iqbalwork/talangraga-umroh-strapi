@@ -12,7 +12,7 @@
   "pluginOptions": {},
   "attributes": {
     "amount": {
-      "type": "decimal",
+      "type": "biginteger",
       "required": true
     },
     "buktiTransferImage": {
